@@ -11,4 +11,4 @@ else {
     store = memdown('test');
 }
 
-module.exports = levelup(encode(store));
+module.exports = levelup(encode(store, { valueEncoding: 'json' }));
