@@ -1,0 +1,28 @@
+{
+  "name": "key-value-as-a-service",
+  "version": "1.0.0",
+  "description": "Key-value as a service",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava test"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^3.4.0",
+    "eslint": "^6.8.0"
+  },
+  "engines": {
+    "node": ">=12.16.1 <13.0.0"
+  },
+  "dependencies": {
+    "encoding-down": "^6.3.0",
+    "koa": "^2.11.0",
+    "koa-router": "^8.0.8",
+    "levelup": "^4.3.2",
+    "memdown": "^5.1.0",
+    "pg": "^7.18.2",
+    "pg-query-stream": "^3.0.3",
+    "sqldown": "^2.1.0"
+  }
+}
