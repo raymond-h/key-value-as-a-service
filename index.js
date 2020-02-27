@@ -32,6 +32,8 @@ router
     ctx.assert(allowedIds.includes(ctx.params.id), 403);
 
     await db.put(keyForId(ctx.params.id), ctx.request.body);
+
+    ctx.body = {key: keyForId(ctx.params.id), value: ctx.request.body, success: true};
 });
 
 app
