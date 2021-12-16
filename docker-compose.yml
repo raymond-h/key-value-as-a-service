@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    restart: always
+    environment:
+      ALLOWED_IDS:
+      DATABASE_URL: 'postgres://postgres:${DATABASE_PASSWORD}@db:5432/kvaas_db'
+    ports:
+      - '127.0.0.1:30002:3000'
+
+  db:
+    image: 'postgres:11.6'
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_DB: 'kvaas_db'
+      POSTGRES_PASSWORD: '${DATABASE_PASSWORD}'
+    volumes:
+      - 'db-data:/var/lib/postgresql/data'
+    ports:
+      - '127.0.0.1:16647:5432'
+
+volumes:
+  db-data:
