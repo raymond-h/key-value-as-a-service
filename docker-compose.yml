@@ -7,8 +7,10 @@ services:
     environment:
       ALLOWED_IDS:
       DATABASE_URL: 'postgres://postgres:${DATABASE_PASSWORD}@db:5432/kvaas_db'
-    ports:
-      - '127.0.0.1:30002:3000'
+    expose:
+      - '3000'
+    labels:
+      docker-gen.host: '${VIRTUAL_HOST}'
 
   db:
     image: 'postgres:11.6'
