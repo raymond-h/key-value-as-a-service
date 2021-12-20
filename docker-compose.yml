@@ -3,7 +3,7 @@ version: '3.8'
 services:
   api:
     build: .
-    restart: always
+    restart: unless-stopped
     environment:
       ALLOWED_IDS:
       DATABASE_URL: 'postgres://postgres:${DATABASE_PASSWORD}@db:5432/kvaas_db'
@@ -14,6 +14,7 @@ services:
 
   db:
     image: 'postgres:11.6'
+    restart: unless-stopped
     environment:
       POSTGRES_USER: 'postgres'
       POSTGRES_DB: 'kvaas_db'
